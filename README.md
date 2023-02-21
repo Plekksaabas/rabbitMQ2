@@ -7,9 +7,10 @@ open browser on: http://localhost:15672
 > **user**: guest, **password**: guest
 
 ## sending test messages
-
-You can send test messages using rabbitMQ CLI and by browser
-
+You can send test messages using rabbitMQ CLI and by browser  
+Prerequisite: queue must exist.  
+For some reason you can't create queues on the browser, however here is the command to run in the docker container:  
+`abbitmqadmin declare queue name=queue`
 ### message options
 
 * **durable**: A boolean flag that indicates whether the queue should be durable, meaning that it will survive a broker
