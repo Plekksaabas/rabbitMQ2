@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -15,7 +16,7 @@ import java.util.List;
 @Getter
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "classifier", uniqueConstraints = {@UniqueConstraint(columnNames = {"id"})})
-public class Classifier {
+public class Classifier implements Serializable {
     @Id
     private long id;
 
