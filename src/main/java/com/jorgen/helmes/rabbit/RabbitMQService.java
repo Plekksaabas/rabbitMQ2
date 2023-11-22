@@ -1,5 +1,6 @@
 package com.jorgen.helmes.rabbit;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -14,8 +15,7 @@ import static com.jorgen.helmes.util.JsonConverterUtil.convertMessageToJson;
 public class RabbitMQService {
     private final RabbitTemplate rabbitTemplate;
 
-    @SneakyThrows
-    public void sendMessage(String queue, Object message) {
+    public void sendMessage(String queue, Object message) throws JsonProcessingException {
         rabbitTemplate.convertAndSend(queue, message);
         log.info("RabbitMQ: sent a message: {}", convertMessageToJson(message));
     }

@@ -1,5 +1,6 @@
 package com.jorgen.helmes.rabbit;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.jorgen.helmes.ClassifierRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -14,9 +15,13 @@ import static com.jorgen.helmes.util.JsonConverterUtil.convertMessageToJson;
 @RequiredArgsConstructor
 public class RabbitMQListener {
 
-    @SneakyThrows
-    @RabbitListener(queues = "queue")
-    public void receiveMessage(ClassifierRequest classifier)  {
+    @RabbitListener(queues = "classification")
+    public void receiveMessage(ClassifierRequest classifier) throws JsonProcessingException {
         log.info("RabbitMQ: Received a classifier: {}", convertMessageToJson(classifier));
+    }
+
+    @RabbitListener(queues = "everything")
+    public void receiveMessage(String everything)  {
+        log.info("RabbitMQ: Received a message: {}", everything);
     }
 }

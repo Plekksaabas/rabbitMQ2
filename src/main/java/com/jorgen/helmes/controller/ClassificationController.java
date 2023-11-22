@@ -1,5 +1,6 @@
 package com.jorgen.helmes.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.jorgen.helmes.ClassifierRequest;
 import com.jorgen.helmes.domain.Classifier;
 import com.jorgen.helmes.rabbit.RabbitMQService;
@@ -26,7 +27,7 @@ public class ClassificationController {
     }
 
     @PostMapping("/classification")
-    public void saveClassification(@RequestBody ClassifierRequest classifier) {
+    public void saveClassification(@RequestBody ClassifierRequest classifier) throws JsonProcessingException {
         rabbitMQService.sendMessage("queue", classifier);
     }
 }
