@@ -3,7 +3,7 @@ package com.jorgen.helmes.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.jorgen.helmes.ClassifierRequest;
 import com.jorgen.helmes.domain.Classifier;
-import com.jorgen.helmes.rabbit.RabbitMQService;
+import com.jorgen.helmes.rabbit.hello.RabbitMQService;
 import com.jorgen.helmes.repository.ClassifierRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package com.jorgen.helmes.rabbit;
+package com.jorgen.helmes.rabbit.hello;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
